@@ -2,6 +2,7 @@ import express, { Express, Request, Response , Application } from 'express';
 import dotenv from 'dotenv';
 import { todoController } from './src/controllers/todoController';
 import {deleteTodo} from './src/routes/delete-todo'
+import cors from 'cors';
 
 //For env File 
 dotenv.config();
@@ -10,6 +11,8 @@ const app: Application = express();
 const port = process.env.PORT || 8000;
 
 app.use(express.json());
+// app.use(cors());
+app.use(cors({ origin: 'http://localhost:5173' }));
 
 //----------- health check ------------
 
