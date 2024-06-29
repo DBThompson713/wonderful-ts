@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 import { client } from '../helpers/redis';
 
 export const getTodo = async (req: Request, res: Response) => {
-  const { id } = req.body;
+  const { id } = req.params;
 
   try {
     if (!id) {

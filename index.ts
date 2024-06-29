@@ -1,7 +1,8 @@
-import express, { Express, Request, Response , Application } from 'express';
+import express, { Request, Response , Application } from 'express';
 import dotenv from 'dotenv';
 import { todoController } from './src/controllers/todoController';
 import {deleteTodo} from './src/routes/delete-todo'
+import { getTodo } from './src/routes/get-todo';
 import cors from 'cors';
 
 //For env File 
@@ -11,8 +12,8 @@ const app: Application = express();
 const port = process.env.PORT || 8000;
 
 app.use(express.json());
-// app.use(cors());
-app.use(cors({ origin: 'http://localhost:5173' }));
+app.use(cors());
+// app.use(cors({ origin: 'http://localhost:5173' }));
 
 //----------- health check ------------
 
@@ -24,7 +25,6 @@ app.get('/', (req: Request, res: Response) => {
 //----------- todo ------------
 
 app.post('/add-todo', async(req: Request, res: Response) => {
-   
     await todoController(req, res);  
 });
 
@@ -32,14 +32,12 @@ app.get('/get-todos', async(req: Request, res: Response) => {
     await todoController(req, res);
 });
 
-app.get('/get-todo', async(req: Request, res: Response) => {
-    await todoController(req, res);
-});
+app.get('/get-todo/:id', getTodo);
+
 
 app.delete('/delete-todo/:key', deleteTodo);
 
 app.patch('/update-todo', async(req: Request, res: Response) => {
-    console.log('update Todo hit', req.body)
     await todoController(req, res);
 });
 
