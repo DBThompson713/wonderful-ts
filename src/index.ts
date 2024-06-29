@@ -1,13 +1,14 @@
 import express, { Express, Request, Response , Application } from 'express';
 import dotenv from 'dotenv';
-import { todoController } from './src/controllers/todoController';
-import {deleteTodo} from './src/routes/delete-todo'
+import { todoController } from './controllers/todoController';
+import {deleteTodo} from './routes/delete-todo'
+
 
 //For env File 
 dotenv.config();
 
 const app: Application = express();
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8000;  
 
 app.use(express.json());
 
@@ -32,6 +33,10 @@ app.get('/get-todos', async(req: Request, res: Response) => {
 app.get('/get-todo', async(req: Request, res: Response) => {
     await todoController(req, res);
 });
+
+// app.delete('/delete-todo', async(req: Request, res: Response) => {
+//     await todoController(req, res);
+// });
 
 app.delete('/delete-todo/:key', deleteTodo);
 
