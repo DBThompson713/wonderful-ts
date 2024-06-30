@@ -6,7 +6,7 @@ export const addTodo = async (req: Request, res: Response) => {
   const dateCheck = date?date:""
   const completedCheck = completed?completed:false
 
-  const id = Math.floor(Math.random() * 713)
+  const id = Math.floor(Math.random() * 7131)
 
   if (!todo) {
     return res.status(400).json({ message: 'Todo is required' });
