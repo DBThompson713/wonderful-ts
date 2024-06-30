@@ -11,7 +11,7 @@ export const todoController = async (req: Request, res: Response) => {
       '/get-todos': getTodos,
       '/get-todo': getTodo,
       '/add-todo': addTodo,
-      '/update-todo/': updateTodo,
+      '/update-todo': updateTodo,
     };
 
     const functionType = functionLookup[url];

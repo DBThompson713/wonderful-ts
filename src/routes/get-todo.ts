@@ -13,7 +13,7 @@ export const getTodo = async (req: Request, res: Response) => {
     const parsedData = JSON.parse(data as string);
     return res
       .status(200)
-      .json({ message: 'Successfully fetched Todo', parsedData });
+      .json({ ...parsedData });
   } catch (error) {
     console.error("Error fetching todo from Redis:", error);
     return res.status(500).json({ message: 'Error fetching todo', error: "unable to fetch todo" });
