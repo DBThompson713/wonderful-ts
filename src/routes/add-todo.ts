@@ -6,7 +6,6 @@ export const addTodo = async (req: Request, res: Response) => {
   const dateCheck = date?date:""
   const completedCheck = completed?completed:false
 
-  // Need a better way to generate keys
   const id = Math.floor(Math.random() * 713)
 
   if (!todo) {

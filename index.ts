@@ -5,7 +5,6 @@ import {deleteTodo} from './src/routes/delete-todo'
 import { getTodo } from './src/routes/get-todo';
 import cors from 'cors';
 
-//For env File 
 dotenv.config();
 
 const app: Application = express();
@@ -13,7 +12,6 @@ const port = process.env.PORT || 8000;
 
 app.use(express.json());
 app.use(cors());
-// app.use(cors({ origin: 'http://localhost:5173' }));
 
 //----------- health check ------------
 
@@ -22,7 +20,7 @@ app.get('/', (req: Request, res: Response) => {
     return res.status(200).send('Online!');
 });
 
-//----------- todo ------------
+//----------- todo endpoints------------
 
 app.post('/add-todo', async(req: Request, res: Response) => {
     await todoController(req, res);  
