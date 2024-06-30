@@ -1,6 +1,6 @@
 # Wonderful Todo App - Backend
 
-This repository contains the backend server for the Wonderful Todo app, built with Node.js, Express, and TypeScript.
+This repository contains the backend server for the Wonderful Todo app, built with Node.js, Express, and TypeScript. The app persists to upstash (redis).
 
 ## Getting Started
 
